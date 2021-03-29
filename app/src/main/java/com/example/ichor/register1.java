@@ -1,20 +1,30 @@
 package com.example.ichor;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserManager;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static com.example.ichor.R.string.PASSWORDNOT;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class register1 extends AppCompatActivity {
 
     private Button Nex;
     private EditText email, pass, conpass;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -28,7 +38,8 @@ public class register1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(validate()){
                     if(equalto()){
-                        Openregister2();
+                        registeremail();
+
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "Password are not same", Toast.LENGTH_SHORT).show();
@@ -45,13 +56,15 @@ public class register1 extends AppCompatActivity {
         email=(EditText)findViewById(R.id.emailadd);
         pass=(EditText)findViewById(R.id.conpass1);
         conpass=(EditText)findViewById(R.id.conpass2);
+        mAuth = FirebaseAuth.getInstance();
+        /*firebaseDatabase = FirebaseDatabase.getInstance();*/
     }
     public Boolean validate(){
         Boolean result = false;
 
-        String Email = email.getText().toString();
-        String Pass = pass.getText().toString();
-        String conPass = conpass.getText().toString();
+        String Email = email.getText().toString().trim();
+        String Pass = pass.getText().toString().trim();
+        String conPass = conpass.getText().toString().trim();
 
         if(Email.isEmpty() && Pass.isEmpty() && conPass.isEmpty()){
             Toast.makeText(this, "Please enter the email & password",Toast.LENGTH_SHORT).show();
@@ -73,4 +86,9 @@ public class register1 extends AppCompatActivity {
         }
         return result1;
     }
+
+    public void registeremail(){
+
+    }
+
 }

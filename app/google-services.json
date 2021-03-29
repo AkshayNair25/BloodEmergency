@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "295873262639",
+    "firebase_url": "https://blood-emergency-6f31f-default-rtdb.firebaseio.com",
+    "project_id": "blood-emergency-6f31f",
+    "storage_bucket": "blood-emergency-6f31f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295873262639:android:c9a5f68b8d96c8dd6e02da",
+        "android_client_info": {
+          "package_name": "com.example.ichor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295873262639-sup0m4lufd07kinkig2c3eedfurq4okg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdCDq9g7kJCz3GNDQl7HRPKIa-RVCuIBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295873262639-sup0m4lufd07kinkig2c3eedfurq4okg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

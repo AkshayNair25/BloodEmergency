@@ -27,16 +27,28 @@ public class register2 extends AppCompatActivity implements
         //Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
+
+
+        //Performing action onItemSelected and onNothing selected
+       /*@Override
+        public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+            Toast.makeText(getApplicationContext(),country[position] , Toast.LENGTH_LONG).show();
+        }
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }*/
+
+}
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
     }
 
-    //Performing action onItemSelected and onNothing selected
     @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(),country[position] , Toast.LENGTH_LONG).show();
-    }
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
 
