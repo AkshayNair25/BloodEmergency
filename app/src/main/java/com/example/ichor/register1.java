@@ -24,7 +24,7 @@ public class register1 extends AppCompatActivity {
 
     private Button Nex;
     private EditText email, pass, conpass;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth auth;
 
 
     @Override
@@ -38,8 +38,11 @@ public class register1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(validate()){
                     if(equalto()){
-                        registeremail();
+                        String Email = email.getText().toString().trim();
+                        String Pass = pass.getText().toString().trim();
+                        registerUser( Email, Pass);
 
+                        Openregister2();
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "Password are not same", Toast.LENGTH_SHORT).show();
@@ -56,7 +59,7 @@ public class register1 extends AppCompatActivity {
         email=(EditText)findViewById(R.id.emailadd);
         pass=(EditText)findViewById(R.id.conpass1);
         conpass=(EditText)findViewById(R.id.conpass2);
-        mAuth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         /*firebaseDatabase = FirebaseDatabase.getInstance();*/
     }
     public Boolean validate(){
@@ -66,7 +69,7 @@ public class register1 extends AppCompatActivity {
         String Pass = pass.getText().toString().trim();
         String conPass = conpass.getText().toString().trim();
 
-        if(Email.isEmpty() && Pass.isEmpty() && conPass.isEmpty()){
+        if(Email.isEmpty() || Pass.isEmpty() || conPass.isEmpty()){
             Toast.makeText(this, "Please enter the email & password",Toast.LENGTH_SHORT).show();
         }else{
             result = true;
@@ -87,8 +90,18 @@ public class register1 extends AppCompatActivity {
         return result1;
     }
 
-    public void registeremail(){
-
+    private void registerUser(String email, String password){
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register1.this,new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(),"Registration is done",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Registration Failed",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
+
 
 }

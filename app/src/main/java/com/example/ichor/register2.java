@@ -50,6 +50,9 @@ public class register2 extends AppCompatActivity implements
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    public void Spinner(){
+
+    }
 }
 
 /*
