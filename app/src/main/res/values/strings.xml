@@ -14,4 +14,15 @@
     <string name="email">Email</string>
     <string name="next">NEXT</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="logged_in">Logged In</string>
+    <string-array name="Bgrp">
+        <item>A+</item>
+        <item>B+</item>
+        <item>O+</item>
+        <item>AB+</item>
+        <item>A-</item>
+        <item>B-</item>
+        <item>O-</item>
+        <item>AB-</item>
+    </string-array>
 </resources>

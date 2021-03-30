@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button register, login;
     private EditText email, pass;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth auth;
     FirebaseDatabase firebaseDatabase;
 
 
@@ -45,14 +46,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validate()){
-                    /*mAuth.createUserWithEmailAndPassword(email,pass)
-                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
+                    String Email = email.getText().toString().trim();
+                    String Pass = pass.getText().toString().trim();
+                    loginUser(Email, Pass);
 
-                                }
-                            });*/
-                    Toast.makeText(getApplicationContext(), "Logined In ",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void setupuiviews(){
         email= findViewById(R.id.email);
         pass= findViewById(R.id.pass);
-        mAuth=FirebaseAuth.getInstance();
+        auth=FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
     }
 
@@ -85,5 +82,17 @@ public class MainActivity extends AppCompatActivity {
     public void openActivity2(){
         Intent intent=new Intent(this, register1.class);
         startActivity(intent);
+    }
+
+
+    public void loginUser(String email, String password){
+        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Toast.makeText(getApplicationContext(), "Login Successful!",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Mainpage.class));
+                finish();
+            }
+        });
     }
 }

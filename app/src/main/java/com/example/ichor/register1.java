@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.UserManager;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,14 +34,14 @@ public class register1 extends AppCompatActivity {
         setContentView(R.layout.activity_register1);
         setupuiviews();
         Nex=(Button)findViewById(R.id.next);
-        Nex.setOnClickListener(new View.OnClickListener() {
+        Nex.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validate()){
                     if(equalto()){
-                        String Email = email.getText().toString().trim();
-                        String Pass = pass.getText().toString().trim();
-                        registerUser( Email, Pass);
+                        String txt_Email = email.getText().toString().trim();
+                        String txt_Pass = pass.getText().toString().trim();
+                        registerUser( txt_Email, txt_Pass);
 
                         Openregister2();
                     }
@@ -90,8 +91,8 @@ public class register1 extends AppCompatActivity {
         return result1;
     }
 
-    private void registerUser(String email, String password){
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register1.this,new OnCompleteListener<AuthResult>() {
+    private void registerUser(String email1, String password1){
+        auth.createUserWithEmailAndPassword(email1, password1).addOnCompleteListener(register1.this,new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){

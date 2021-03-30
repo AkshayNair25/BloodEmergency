@@ -7,7 +7,7 @@
     tools:context=".register2">
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/Locality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="53dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/PersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -35,7 +35,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/AgeN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -45,11 +45,11 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/PersonName"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/MNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -59,14 +59,13 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/Locality"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/registerB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="76dp"
         android:text="@string/register"
         android:textSize="24sp"
         app:backgroundTint="@color/purple_500"
@@ -74,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+        app:layout_constraintTop_toBottomOf="@+id/MNumber" />
 
     <TextView
         android:id="@+id/textView3"
@@ -87,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintTop_toBottomOf="@+id/AgeN"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
@@ -101,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.739"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
+        app:layout_constraintTop_toBottomOf="@+id/AgeN"
         app:layout_constraintVertical_bias="0.101" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
